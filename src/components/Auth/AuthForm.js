@@ -1,6 +1,6 @@
 import { useState, useRef, useContext } from 'react';
 import CartContext from '../Context/cart-contetxt';
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 
 import classes from './AuthForm.module.css';
 
@@ -8,6 +8,8 @@ const AuthForm = () => {
   const credCtx  = useContext(CartContext);
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+  const history = useHistory();
+
 
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -58,8 +60,8 @@ const AuthForm = () => {
         }
       })
       .then((data) => {
-        console.log(data);
         credCtx.addCreds({email: data.email, token:data.idToken})
+        history.replace('/')
         
       })
       .catch((err) => {

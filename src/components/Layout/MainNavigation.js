@@ -17,9 +17,9 @@ const MainNavigation = (props) => {
           <li>
           {!credCtx.check() && <Link to='/auth'>Login</Link>}
           </li>
-          <li>
-           {credCtx.check() && <Link to='/profile'>Profile</Link>}
-          </li>
+          {credCtx.check() && <li>
+            <Link to='/profile'>Profile</Link>
+          </li>}
           <li>
             {credCtx.check() && <button onClick={credCtx.logOut}>Logout</button>}
           </li>
