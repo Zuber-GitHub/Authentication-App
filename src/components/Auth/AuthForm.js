@@ -1,5 +1,6 @@
 import { useState, useRef, useContext } from 'react';
 import CartContext from '../Context/cart-contetxt';
+import { Link } from 'react-router-dom';
 
 import classes from './AuthForm.module.css';
 
@@ -88,7 +89,7 @@ const AuthForm = () => {
         </div>
         <div className={classes.actions}>
           {!isLoading && (
-            <button >{isLogin ? 'Login' : 'Create Account'}</button>
+            <button>{isLogin ? 'Login' : 'Create Account'}</button>
           )}
           {isLoading && <p>Sending request...</p>}
           <button

@@ -9,16 +9,19 @@ import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
 
 function App() {
+  const credCtx = useContext(CartContext);
   return (
     <CartProvider>
     <Layout >
       <Switch>
         <Route path='/' exact>
-          <HomePage />
+          <HomePage />  
         </Route>
+        
         <Route path='/auth'>
           <AuthPage />
         </Route>
+        
         <Route path='/profile'>
           <UserProfile />
         </Route>
